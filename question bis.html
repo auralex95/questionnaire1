@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1894.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="fr"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Questionnaire Cyclothymique&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #a8edea, #fed6e3);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.question-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.question-container.active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: background-color 0.3s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn:disabled {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #aaa;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: not-allowed;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-selected {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #666;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-nav {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #555;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.progress-bar {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.progress-bar-fill {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #4caf50;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 0%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: width 0.3s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="welcome"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Questionnaire Cyclothymique&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="roomNumber"&gt;Numéro de chambre :&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="text" id="roomNumber" placeholder="Entrez votre numéro"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick="startQuestionnaire()"&gt;Commencer&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="questionnaire"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="progress-bar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="progress-bar-fill" id="progress"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Questions --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="questions"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Les questions seront insérées dynamiquement par JavaScript --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Résumé --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="summary" class="question-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Résumé des réponses&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="recap"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&lt;strong&gt;Total de réponses "Oui" :&lt;/strong&gt; &lt;span id="totalYes"&gt;0&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&lt;strong&gt;Total de réponses "Non" :&lt;/strong&gt; &lt;span id="totalNo"&gt;0&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="sendEmail()"&gt;Envoyer par e-mail&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const questions = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Je me sens souvent fatigué(e) sans raison.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Je ressens les émotions de façon particulièrement intense.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"J'ai des changements brutaux d'humeur et d'énergie.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Mes sentiments ou mon énergie sont « trop hauts » ou « trop bas », rarement « entre les deux ».",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Je me sens souvent déprimé(e) pendant quelques jours puis en pleine forme.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Mes capacités de pensée varient beaucoup (par exemple : entre avoir l’esprit vif ou confus).",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Je prends grand plaisir à rencontrer d'autres personnes puis m’en désintéresse totalement.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"J'ai tendance à exploser, puis je m’en veux.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"J’ai l’habitude de commencer des choses puis de m’en désintéresser complètement.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Mon humeur change souvent sans raison.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Parfois je me sens bouillonnant(e) d’énergie et à d'autres moments très paresseux(se).",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Je peux être d'excellente humeur avant de m'endormir et me réveiller avec la sensation que la vie ne vaut pas la peine d’être vécue.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"On m’a fait remarquer que j’ai des périodes de pessimisme au cours desquelles j’oublie mes moments d’optimisme et d’enthousiasme.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Ma confiance en moi-même varie d’un extrême à l’autre.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"D’un jour à l’autre, je peux être sociable, « boute-en-train » ou isolé(e), seul(e) dans mon coin.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Mon besoin de sommeil est très variable, de quelques heures à plus de 9 heures par nuit.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Je peux ressentir les choses de façon très vive ou au contraire très terne.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Je peux être triste et gai(e) en même temps.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"J’ai souvent tendance à « rêver » dans la journée à des choses que les gens considèrent comme irréalistes.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"J’ai parfois très envie d’avoir des comportements risqués ou scandaleux.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Je suis tombé(e) fréquemment amoureux(se) dans ma vie."</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const answers = {};</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let currentQuestion = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function startQuestionnaire() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("welcome").style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("questionnaire").style.display = "block";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>generateQuestions();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showQuestion(0);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function generateQuestions() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const questionsContainer = document.getElementById('questions');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>questions.forEach((question, index) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const questionDiv = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>questionDiv.classList.add('question-container');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>questionDiv.id = `question${index}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>questionDiv.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;${index + 1}. ${question}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn" onclick="selectAnswer(${index}, '${question}', 'oui', this)"&gt;Oui&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn" onclick="selectAnswer(${index}, '${question}', 'non', this)"&gt;Non&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn btn-nav" onclick="previousQuestion(${index})" ${index === 0 ? 'disabled' : ''}&gt;Précédent&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn btn-nav" id="next${index}" disabled onclick="nextQuestion(${index})"&gt;Suivant&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>questionsContainer.appendChild(questionDiv);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showQuestion(index) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (currentQuestion &gt;= 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById(`question${currentQuestion}`).classList.remove('active');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById(`question${index}`).classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentQuestion = index;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>updateProgress();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function selectAnswer(index, question, response, btn) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>answers[question] = response;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const buttons = document.querySelectorAll(`#question${index} .btn`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>buttons.forEach(button =&gt; button.classList.remove('btn-selected'));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>btn.classList.add('btn-selected');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById(`next${index}`).disabled = false;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function nextQuestion(index) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (index + 1 &lt; questions.length) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showQuestion(index + 1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showSummary();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function previousQuestion(index) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (index - 1 &gt;= 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showQuestion(index - 1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function updateProgress() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const progress = ((currentQuestion + 1) / questions.length) * 100;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('progress').style.width = `${progress}%`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showSummary() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById(`question${currentQuestion}`).classList.remove('active');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('summary').style.display = "block";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const recap = document.getElementById('recap');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>recap.innerHTML = Object.entries(answers).map(([q, a]) =&gt; `&lt;p&gt;&lt;strong&gt;${q}&lt;/strong&gt;: ${a}&lt;/p&gt;`).join('');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const totalYes = Object.values(answers).filter(answer =&gt; answer === 'oui').length;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const totalNo = Object.values(answers).filter(answer =&gt; answer === 'non').length;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('totalYes').textContent = totalYes;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('totalNo').textContent = totalNo;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function sendEmail() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const room = document.getElementById("roomNumber").value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const totalYes = Object.values(answers).filter(answer =&gt; answer === 'oui').length;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const totalNo = Object.values(answers).filter(answer =&gt; answer === 'non').length;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const emailBody = `Chambre : ${room}\n\n` +</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Object.entries(answers).map(([q, a]) =&gt; `${q}: ${a}`).join('\n') +</p>
+<p class="p1"><span class="Apple-converted-space">                </span>`\n\nTotal Oui: ${totalYes}\nTotal Non: ${totalNo}`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>window.location.href = `mailto:?subject=Résultats Questionnaire&amp;body=${encodeURIComponent(emailBody)}`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
